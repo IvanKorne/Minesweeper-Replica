@@ -306,154 +306,154 @@ int reveal(char * board, std::size_t x_dim, std::size_t y_dim, std::size_t x_loc
     for(std::size_t i = 0; i < y_dim; i++){
         for(std::size_t j = 0; j < x_dim; j++){
             if((j == x_loc) && (i == y_loc)){
-                if((board[j + x_dim*i]&hidden) == 0){
-                    return 2;
-                }
-                else if((board[j + x_dim*i]&mark) == 1){
+                if((board[j + x_dim*i]&mark) == mark){
                     return 1;
                 }
                 else if((board[j + x_dim*i]&15) == 9){
                     board[j + x_dim*i] ^= hidden;
                     return 9;
                 }
+                else if((board[j + x_dim*i]&hidden) == 0){
+                    return 2;
+                }
                 else if((board[j + x_dim*i]&15) == 0){
                     board[j + x_dim*i] ^= hidden;
                     if(check(x_dim,y_dim,j+x_dim*i)==0){
-                        if((board[j + x_dim*i + 1]&mark)==0){
+                        if(((board[j + x_dim*i + 1]&mark)==0) && ((board[j + x_dim*i + 1]&hidden)==hidden)){
                             board[j + x_dim*i + 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + x_dim]&mark)==0) && ((board[j + x_dim*i + x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i + 1 + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + 1 + x_dim]&mark)==0) && ((board[j + x_dim*i + x_dim + 1]&hidden)==hidden)){
                             board[j + x_dim*i + 1 + x_dim] ^= hidden;
                         }
                     }
                     else if(check(x_dim,y_dim,j+x_dim*i)==1){
-                        if((board[j + x_dim*i - 1]&mark)==0){
+                        if(((board[j + x_dim*i - 1]&mark)==0) && ((board[j + x_dim*i - 1]&hidden)==hidden)){
                             board[j + x_dim*i - 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim]&mark)==0) && ((board[j + x_dim*i - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i - 1 - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - 1 - x_dim]&mark)==0) && ((board[j + x_dim*i - 1 - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - 1 - x_dim] ^= hidden;
                         }
                     }
                     else if(check(x_dim, y_dim, j + x_dim * i) == 2){
-                        if((board[j + x_dim*i + 1]&mark)==0){
+                        if(((board[j + x_dim*i + 1]&mark)==0) && ((board[j + x_dim*i + 1]&hidden)==hidden)){
                             board[j + x_dim*i + 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim]&mark)==0) && ((board[j + x_dim*i - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i + 1 - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + 1 - x_dim]&mark)==0) && ((board[j + x_dim*i + 1 - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + 1 - x_dim] ^= hidden;
                         }
                     }
                     else if(check(x_dim, y_dim, j + x_dim * i) == 3){
-                        if((board[j + x_dim*i - 1]&mark)==0){
+                        if(((board[j + x_dim*i - 1]&mark)==0) && ((board[j + x_dim*i - 1]&hidden)==hidden)){
                             board[j + x_dim*i - 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim]&mark)==0) && ((board[j + x_dim*i - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i - 1 - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - 1 - x_dim]&mark)==0) && ((board[j + x_dim*i - 1 - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - 1 - x_dim] ^= hidden;
                         }
                     }
                     else if(check(x_dim, y_dim, j + x_dim * i) == 4){
-                        if((board[j + x_dim*i + 1]&mark)==0){
+                        if(((board[j + x_dim*i + 1]&mark)==0) && ((board[j + x_dim*i + 1]&hidden)==hidden)){
                             board[j + x_dim*i + 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - 1]&mark)==0){
+                        if(((board[j + x_dim*i - 1]&mark)==0) && ((board[j + x_dim*i - 1]&hidden)==hidden)){
                             board[j + x_dim*i - 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i + 1 + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + 1 + x_dim]&mark)==0) && ((board[j + x_dim*i + 1 + x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + 1 + x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + x_dim]&mark)==0) && ((board[j + x_dim*i + x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i + x_dim - 1]&mark)==0){
+                        if(((board[j + x_dim*i + x_dim - 1]&mark)==0) && ((board[j + x_dim*i + x_dim - 1]&hidden)==hidden)){
                             board[j + x_dim*i + x_dim - 1] ^= hidden;
                         }
                     }
                     else if(check(x_dim, y_dim, j + x_dim * i) == 5){
-                        if((board[j + x_dim*i + 1]&mark)==0){
+                        if(((board[j + x_dim*i + 1]&mark)==0) && ((board[j + x_dim*i + 1]&hidden)==hidden)){
                             board[j + x_dim*i + 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - 1]&mark)==0){
+                        if(((board[j + x_dim*i - 1]&mark)==0) && ((board[j + x_dim*i - 1]&hidden)==hidden)){
                             board[j + x_dim*i - 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i + 1 - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + 1 - x_dim]&mark)==0) && ((board[j + x_dim*i + 1 - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + 1 - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim]&mark)==0) && ((board[j + x_dim*i - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim - 1]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim - 1]&mark)==0) && ((board[j + x_dim*i - x_dim - 1]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim - 1] ^= hidden;
                         }
                     }
                     else if(check(x_dim, y_dim, j + x_dim * i) == 6){
-                        if((board[j + x_dim*i + 1]&mark)==0){
+                        if(((board[j + x_dim*i + 1]&mark)==0) && ((board[j + x_dim*i + 1]&hidden)==hidden)){
                             board[j + x_dim*i + 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim]&mark)==0) && ((board[j + x_dim*i - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i + 1 + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + 1 + x_dim]&mark)==0) && ((board[j + x_dim*i + x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + 1 + x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim + 1]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim + 1]&mark)==0) && ((board[j + x_dim*i - x_dim + 1]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim + 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + x_dim]&mark)==0) && ((board[j + x_dim*i + x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + x_dim] ^= hidden;
                         }
                     }
                     else if(check(x_dim, y_dim, j + x_dim * i) == 7){
-                        if((board[j + x_dim*i - 1]&mark)==0){
+                        if(((board[j + x_dim*i - 1]&mark)==0) && ((board[j + x_dim*i - 1]&hidden)==hidden)){
                             board[j + x_dim*i - 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - 1 - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - 1 - x_dim]&mark)==0) && ((board[j + x_dim*i - 1 - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - 1 - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i - 1 + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - 1 + x_dim]&mark)==0) && ((board[j + x_dim*i - 1 + x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - 1 + x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim]&mark)==0) && ((board[j + x_dim*i - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + x_dim]&mark)==0) && ((board[j + x_dim*i + x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + x_dim] ^= hidden;
                         }
                     }
                     else if(check(x_dim, y_dim, j + x_dim * i) == 8){
-                        if((board[j + x_dim*i + 1]&mark)==0){
+                        if(((board[j + x_dim*i + 1]&mark)==0) && ((board[j + x_dim*i + 1]&hidden)==hidden)){
                             board[j + x_dim*i + 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - 1]&mark)==0){
+                        if(((board[j + x_dim*i - 1]&mark)==0) && ((board[j + x_dim*i - 1]&hidden)==hidden)){
                             board[j + x_dim*i - 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i + x_dim]&mark)==0){
+                        if(((board[j + x_dim*i + x_dim]&mark)==0) && ((board[j + x_dim*i + x_dim]&hidden)==hidden)){
                             board[j + x_dim*i + x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i + x_dim - 1]&mark)==0){
+                        if(((board[j + x_dim*i + x_dim - 1]&mark)==0) && ((board[j + x_dim*i + x_dim - 1]&hidden)==hidden)){
                             board[j + x_dim*i + x_dim - 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i + x_dim + 1]&mark)==0){
+                        if(((board[j + x_dim*i + x_dim + 1]&mark)==0) && ((board[j + x_dim*i + x_dim + 1]&hidden)==hidden)){
                             board[j + x_dim*i + x_dim + 1] ^= hidden;
                         }
-                        if((board[j + x_dim*i - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - x_dim]&mark)==0) && ((board[j + x_dim*i - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i - 1 - x_dim]&mark)==0){
+                        if(((board[j + x_dim*i - 1 - x_dim]&mark)==0) && ((board[j + x_dim*i - 1 - x_dim]&hidden)==hidden)){
                             board[j + x_dim*i - 1 - x_dim] ^= hidden;
                         }
-                        if((board[j + x_dim*i + 1 - x_dim]&mark)==0){
-                            board[j + x_dim*i + 1 - x_dim] ^= hidden;
+                        if(((board[j + x_dim*i + 1 - x_dim]&mark)==0) && ((board[j + x_dim*i + 1 - x_dim]&hidden)==hidden)){
+                            board[j + x_dim*i + 1 - x_dim] = hidden;
                         }
                     }
                 }
