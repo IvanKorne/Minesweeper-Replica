@@ -456,6 +456,7 @@ int reveal(char * board, std::size_t x_dim, std::size_t y_dim, std::size_t x_loc
                             board[j + x_dim*i + 1 - x_dim] = hidden;
                         }
                     }
+                    return 0;
                 }
                 else{
                     board[j + x_dim*i] ^= hidden;
